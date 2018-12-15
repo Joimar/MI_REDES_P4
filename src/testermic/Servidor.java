@@ -13,27 +13,26 @@ import java.rmi.registry.LocateRegistry;
  *
  * @author joimar
  */
-public class CalculadoraServer 
-{
-    CalculadoraServer()
+public class Servidor {
+    
+    Servidor()
     {
         try
         {
             //System.setProperty("java.rmi.server.hostname", "192.168.86.10");
             System.setProperty("java.rmi.server.hostname", "127.0.1.1");
             LocateRegistry.createRegistry(1099);
-            Calculadora c = new CalculadoraImple();
-            Naming.bind("CalculadoraService", (Remote) c);
+            Servico c = new ServicoImple();
+            Naming.bind("Service", (Remote) c);
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
-        
     }
     
-    public static void main(String[] args)
+     public static void main(String[] args)
     {
-        new CalculadoraServer();
+        new Servidor();
     }
 }

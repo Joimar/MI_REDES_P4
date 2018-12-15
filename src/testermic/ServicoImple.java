@@ -7,14 +7,13 @@ package testermic;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-
 /**
  *
  * @author joimar
  */
-public class CalculadoraImple extends UnicastRemoteObject implements Calculadora 
-{
-    protected CalculadoraImple() throws RemoteException
+public class ServicoImple extends UnicastRemoteObject implements Servico {
+    
+     protected ServicoImple() throws RemoteException
     {
         super();
     }
