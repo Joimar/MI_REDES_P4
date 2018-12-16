@@ -5,6 +5,9 @@
  */
 package testermic;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 /**
@@ -22,4 +25,23 @@ public class ServicoImple extends UnicastRemoteObject implements Servico {
     {
         return a+b;
     }
+    
+     public void criaArq(String nome) throws RemoteException
+     {
+         
+       try
+       {
+           File arq = new File("./"+nome+".txt");
+           
+           if (!arq.exists()) 
+           {
+                arq.createNewFile();
+           }
+       }
+       catch (IOException e) 
+       {
+            e.printStackTrace();
+            System.out.println("NÂO FOI");
+        }  
+     }
 }

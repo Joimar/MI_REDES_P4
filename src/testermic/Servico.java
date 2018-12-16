@@ -15,4 +15,5 @@ import java.rmi.RemoteException;
 public interface Servico extends Remote 
 {
     public long add(long a, long b) throws RemoteException;
+    public void criaArq(String nome) throws RemoteException;
 }

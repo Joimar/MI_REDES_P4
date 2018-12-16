@@ -11,7 +11,7 @@ import java.rmi.Naming;
  *
  * @author joimar
  */
-public class Cliente {
+public class Cliente { 
     
     public static void main(String[] args)
     {
@@ -20,6 +20,7 @@ public class Cliente {
             //Calculadora c = (Calculadora) Naming.lookup("rmi://192.168.86.10:1099/CalculadoraService");
             Servico c = (Servico) Naming.lookup("rmi://127.0.1.1:1099/Service");
             System.out.println("Adição : " + c.add(10, 15));
+            c.criaArq("TESTE");
         }
         catch(Exception e)
         {
