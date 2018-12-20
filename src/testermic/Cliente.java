@@ -24,7 +24,7 @@ public class Cliente {
             //Calculadora c = (Calculadora) Naming.lookup("rmi://192.168.86.10:1099/CalculadoraService");
             c = (Servico) Naming.lookup("rmi://127.0.1.1:1099/Service");
             System.out.println("Adição : " + c.add(10, 15));
-            c.criaArq("TESTE");
+         //   c.criaArq("TESTE");
         }
         catch(Exception e)
         {
@@ -38,7 +38,7 @@ public class Cliente {
         {
             //Calculadora c = (Calculadora) Naming.lookup("rmi://192.168.86.10:1099/CalculadoraService");
             c = (Servico) Naming.lookup("rmi://127.0.1.1:1099/Service");
-            System.out.println("Adição : " + c.add(10, 15));
+           // System.out.println("Adição : " + c.add(10, 15));
             c.criaArq("TESTE");
         }
         catch(Exception e)
