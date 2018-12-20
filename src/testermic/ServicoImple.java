@@ -68,23 +68,27 @@ public class ServicoImple extends UnicastRemoteObject implements Servico {
     public String getArq(String nome) throws RemoteException
     {
        String  linha = new String();
+       String retorno = new String();
          try {
              FileReader arq = new FileReader("./"+nome+".txt");
              BufferedReader lerArq = new BufferedReader(arq);
              linha = lerArq.readLine();
+             retorno+= linha;
              while (linha != null) 
              {
                 System.out.printf("%s\n", linha);
  
                 linha = lerArq.readLine(); // lê da segunda até a última linha
+               if(linha!= null) retorno += linha;
             }
              arq.close();
+              
          } catch (FileNotFoundException ex) {
              Logger.getLogger(ServicoImple.class.getName()).log(Level.SEVERE, null, ex);
          } catch (IOException ex) {
              Logger.getLogger(ServicoImple.class.getName()).log(Level.SEVERE, null, ex);
          }
-         
-         return linha;
+         //ystem.out.print("IMPLE "+retorno);
+         return retorno;
     }
 }

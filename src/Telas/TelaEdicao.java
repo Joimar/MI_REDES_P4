@@ -109,9 +109,11 @@ public class TelaEdicao extends javax.swing.JFrame {
             Servico s = cliente.getService();
             String dado = s.getArq("TESTE");
             jTextArea1.setText(dado);
+            //System.out.println("OLHA: "+dado);
         } catch (RemoteException ex) {
             Logger.getLogger(TelaEdicao.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
