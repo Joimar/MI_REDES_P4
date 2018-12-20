@@ -5,6 +5,8 @@
  */
 package testermic;
 
+//import Telas.TelaEdicao;
+
 /**
  *
  * @author joimar
@@ -15,7 +17,8 @@ public class TesteRMIC {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+      //  TelaEdicao tela = new TelaEdicao();
+      //  tela.setVisible(true);
     }
     
 }

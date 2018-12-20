@@ -8,8 +8,11 @@ package testermic;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author joimar
@@ -26,8 +29,8 @@ public class ServicoImple extends UnicastRemoteObject implements Servico {
         return a+b;
     }
     
-     public void criaArq(String nome) throws RemoteException
-     {
+    public void criaArq(String nome) throws RemoteException
+    {
          
        try
        {
@@ -44,4 +47,18 @@ public class ServicoImple extends UnicastRemoteObject implements Servico {
             System.out.println("NÂO FOI");
         }  
      }
+     
+    public void escreveArq(String nome, String dado) throws RemoteException
+    {
+       
+         try { 
+             FileWriter escritor = new FileWriter("./"+nome+".txt", false);
+             PrintWriter gravar = new PrintWriter(escritor);
+             gravar.println(dado);
+             gravar.close();
+             escritor.close();
+         } catch (IOException ex) {
+             Logger.getLogger(ServicoImple.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }
 }
