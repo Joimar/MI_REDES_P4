@@ -17,4 +17,5 @@ public interface Servico extends Remote
     public long add(long a, long b) throws RemoteException;
     public void criaArq(String nome) throws RemoteException;
     public void escreveArq(String nome, String dado) throws RemoteException;
+    public String getArq(String nome) throws RemoteException;
 }

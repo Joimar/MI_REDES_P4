@@ -5,7 +5,10 @@
  */
 package testermic;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -60,5 +63,28 @@ public class ServicoImple extends UnicastRemoteObject implements Servico {
          } catch (IOException ex) {
              Logger.getLogger(ServicoImple.class.getName()).log(Level.SEVERE, null, ex);
          }
+    }
+    
+    public String getArq(String nome) throws RemoteException
+    {
+       String  linha = new String();
+         try {
+             FileReader arq = new FileReader("./"+nome+".txt");
+             BufferedReader lerArq = new BufferedReader(arq);
+             linha = lerArq.readLine();
+             while (linha != null) 
+             {
+                System.out.printf("%s\n", linha);
+ 
+                linha = lerArq.readLine(); // lê da segunda até a última linha
+            }
+             arq.close();
+         } catch (FileNotFoundException ex) {
+             Logger.getLogger(ServicoImple.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (IOException ex) {
+             Logger.getLogger(ServicoImple.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         
+         return linha;
     }
 }
