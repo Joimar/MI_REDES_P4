@@ -22,11 +22,15 @@ public class TelaEdicao extends javax.swing.JFrame {
      */
     
     private Cliente cliente = new Cliente();
-    
+    private String nome;
     public TelaEdicao() {
         initComponents();
     }
-
+    
+    public void setNome(String nome)
+    {
+        this.nome = nome;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,9 +99,10 @@ public class TelaEdicao extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         try {
-            System.out.println("AQUI");
+            //System.out.println("AQUI");
             Servico s = cliente.getService();
-            s.escreveArq("TESTE", jTextArea1.getText());
+            //s.escreveArq("TESTE", jTextArea1.getText());
+            s.escreveArq(nome, jTextArea1.getText());
         } catch (RemoteException ex) {
             Logger.getLogger(TelaEdicao.class.getName()).log(Level.SEVERE, null, ex);
         }
