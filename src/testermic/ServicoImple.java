@@ -6,12 +6,14 @@
 package testermic;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Writer;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.logging.Level;
@@ -55,10 +57,16 @@ public class ServicoImple extends UnicastRemoteObject implements Servico {
     {
        
          try { 
-             FileWriter escritor = new FileWriter("./"+nome+".txt", false);
-             PrintWriter gravar = new PrintWriter(escritor);
-             gravar.println(dado);
-             gravar.close();
+             FileWriter escritor = new FileWriter("./"+nome+".txt", true);
+             
+             Writer arquivo = new BufferedWriter(escritor);
+             
+             arquivo.append(dado);
+             arquivo.close();
+             
+           //  PrintWriter gravar = new PrintWriter(escritor);
+           //  gravar.println(dado);
+           //  gravar.close();
              escritor.close();
          } catch (IOException ex) {
              Logger.getLogger(ServicoImple.class.getName()).log(Level.SEVERE, null, ex);
