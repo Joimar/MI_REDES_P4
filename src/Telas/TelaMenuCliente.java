@@ -17,6 +17,7 @@ import testermic.Servico;
  */
 public class TelaMenuCliente extends javax.swing.JFrame {
     private Cliente cliente = new Cliente();
+    private Thread editor;
     /**
      * Creates new form TelaMenuCliente
      */
@@ -107,8 +108,10 @@ public class TelaMenuCliente extends javax.swing.JFrame {
         {
             TelaEdicao edicao = new TelaEdicao();
             edicao.setNome(jTextField2.getText());
-            edicao.setVisible(true);
+            //edicao.setVisible(true);
             this.setVisible(false);
+            editor = new Thread(edicao);
+            editor.start();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

@@ -15,7 +15,7 @@ import testermic.Servico;
  *
  * @author joimar
  */
-public class TelaEdicao extends javax.swing.JFrame {
+public class TelaEdicao extends javax.swing.JFrame implements Runnable{
 
     /**
      * Creates new form TelaEdicao
@@ -163,4 +163,25 @@ public class TelaEdicao extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run()
+    {   int i = 0;
+        this.setVisible(true);
+        while(true)
+        {
+            try {
+            Servico s = cliente.getService();
+            //String dado = s.getArq("TESTE");
+            String dado = s.getArq(nome);
+            i = jTextArea1.getCaretPosition();
+            jTextArea1.setText(dado);
+            jTextArea1.setCaretPosition(i);
+            
+            //System.out.println("OLHA: "+dado);
+        } catch (RemoteException ex) {
+            Logger.getLogger(TelaEdicao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+    }
 }
