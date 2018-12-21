@@ -5,6 +5,7 @@
  */
 package Telas;
 
+import java.awt.event.KeyEvent;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -108,13 +109,12 @@ public class TelaMenuCliente extends javax.swing.JFrame {
         {
             TelaEdicao edicao = new TelaEdicao();
             edicao.setNome(jTextField2.getText());
-            //edicao.setVisible(true);
+            edicao.setVisible(true);
             this.setVisible(false);
-            editor = new Thread(edicao);
-            editor.start();
+            
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -156,4 +156,8 @@ public class TelaMenuCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
+    private void printIt(String typed, KeyEvent keyEvent) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
